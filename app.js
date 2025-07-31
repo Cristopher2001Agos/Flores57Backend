@@ -44,8 +44,8 @@ app.post('/login', async (req, res) => {
     }
 
     // *** CAMBIO CLAVE 1: MODIFICAR LA CONSULTA SQL ***
-    // Seleccionar idInspector, codInsp y nombre
-    const sqlQuery = `SELECT idInspector, codInsp, nombre FROM Inspectores WHERE idInspector = '${idInspector}' AND contraseña = '${password}';`;
+    // Seleccionar idInspector, codeInsp y nombre
+    const sqlQuery = `SELECT idInspector, codeInsp, nombre FROM Inspectores WHERE idInspector = '${idInspector}' AND contraseña = '${password}';`;
 
     console.log(`Intentando autenticar idInspector: ${idInspector} con SQLite Cloud Weblite.`);
     console.log(`Ejecutando SQL: ${sqlQuery}`); // Para depuración, útil
@@ -75,9 +75,9 @@ app.post('/login', async (req, res) => {
             // Ejemplo: [['cjes06', '06', 'Cristopher Jesus']]
             const inspectorResult = response.data.data[0]; // Obtener la primera (y única) fila de resultados
 
-            // Asumiendo el orden: [idInspector, codInsp, nombre] de tu SELECT
+            // Asumiendo el orden: [idInspector, codeInsp, nombre] de tu SELECT
             const inspectorId = inspectorResult[0]; // idInspector
-            const inspectorCodInsp = inspectorResult[1]; // codInsp
+            const inspectorCodeInsp = inspectorResult[1]; // codeInsp
             const inspectorNombre = inspectorResult[2]; // nombre
 
             console.log(`Login exitoso para idInspector: ${idInspector}`);
@@ -88,7 +88,7 @@ app.post('/login', async (req, res) => {
                 message: 'Login exitoso.',
                 inspector: { // Objeto 'inspector' con los datos de inspectores
                     idInspector: inspectorId,
-                    codeInsp: inspectorCodInsp,
+                    codeInsp: inspectorCodeInsp,
                     nombre: inspectorNombre
                 }
             });
