@@ -76,9 +76,9 @@ app.post('/login', async (req, res) => {
             const inspectorResult = response.data.data[0]; // Obtener la primera (y única) fila de resultados
 
             // Asumiendo el orden: [idInspector, codeInsp, nombre] de tu SELECT
-            const inspectorId = inspectorResult[0]; // idInspector
-            const inspectorCodeInsp = inspectorResult[1]; // codeInsp
-            const inspectorNombre = inspectorResult[2]; // nombre
+            const inspectorId = inspectorResult.idInspector;
+            const inspectorCodeInsp = inspectorResult.codeInsp;
+            const inspectorNombre = inspectorResult.nombre;
 
             console.log(`Login exitoso para idInspector: ${idInspector}`);
 
