@@ -86,9 +86,9 @@ app.post('/login', async (req, res) => {
             res.status(200).json({
                 success: true,
                 message: 'Login exitoso.',
-                inspector: { // Objeto 'inspector' con los datos
+                inspector: { // Objeto 'inspector' con los datos de inspectores
                     idInspector: inspectorId,
-                    codInsp: inspectorCodInsp,
+                    codeInsp: inspectorCodInsp,
                     nombre: inspectorNombre
                 }
             });
